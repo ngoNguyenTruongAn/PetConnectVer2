@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm fibonacci</title>
+</head>
+<body>
+    <h2>Nhập số lượng phần tử Fibonacci:</h2>
+  <input type="number" id="inputN" placeholder="Nhập số n" min="1">
+  <button onclick="getFibonacci()">Tạo dãy</button>
+
+  <h3>Kết quả:</h3>
+  <pre id="result"></pre>
+
+  <script>
+    async function getFibonacci() {
+      const n = document.getElementById("inputN").value;
+      const resultBox = document.getElementById("result");
+
+      if (!n || n < 1) {
+        resultBox.textContent = "Vui lòng nhập số nguyên dương.";
+        return;
+      }
+
+      try {
+        const response = await fetch(`http://localhost:3000/fibonacci?n=${n}`);
+        if (!response.ok) throw new Error("Lỗi khi gọi API");
+
+        const data = await response.json();
+        resultBox.textContent = data.result.join(", ");
+      } catch (err) {
+        resultBox.textContent = "Không thể lấy dữ liệu: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
