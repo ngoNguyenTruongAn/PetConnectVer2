@@ -7,3 +7,8 @@ Duyên:
 1. Khi server chính gặp sự cố, hệ thống có server khác dự phòng không?
 2. Hệ thống có thể xử lý được bao nhiêu lượt truy cập hoặc yêu cầu đặt phòng đồng thời?
 3. Có kế hoạch tự động mở rộng server khi load tăng không?
+
+Dũng:
+1. Hệ thống có chia vùng lỗi không? Ví dụ: lỗi ở cụm máy chủ thanh toán không ảnh hưởng đến việc hiển thị phòng hay tìm kiếm khách sạn?
+2. Khi hệ thống ghi nhận lỗi nghiêm trọng, có cơ chế tự động giới hạn số lượng request để tránh quá tải thêm không (ví dụ: reject một phần request từ người dùng chưa đăng nhập)?
+3. Có cơ chế gửi cảnh báo ngay lập tức đến quản trị viên khi một thành phần trọng yếu bị crash không? (vd: qua email, Slack, SMS)
